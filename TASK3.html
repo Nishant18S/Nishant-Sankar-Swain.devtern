@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            position: relative;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.7); /* Add opacity for better visibility */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #myVideo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1; /* Place video behind other content */
+            border-radius: 8px; /* Apply border-radius to match container */
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        input[type="text"] {
+            width: 70%;
+            padding: 10px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            outline: none;
+        }
+
+        #addButton, .remove-button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        #addButton:hover, .remove-button:hover {
+            background-color: #45a049;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .completed {
+            text-decoration: line-through;
+            color: #888;
+        }
+
+        .highlighted {
+            background-color: #ffffcc;
+        }
+
+        .remove-button {
+            background-color: #f44336;
+        }
+
+        .remove-button:hover {
+            background-color: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+
+<audio id="addSound" src="mouse-click-153941.mp3"></audio>
+<audio id="removeSound" src="C:\Users\nisha\Downloads\cute-level-up-2-189851.mp3"></audio>
+
+<video autoplay muted loop id="myVideo">
+  <source src="C:\Users\nisha\Downloads\856309-hd_1920_1080_30fps.mp4" type="video/mp4">
+</video>
+
+<div class="container">
+    <h1>To-Do List</h1>
+    <input type="text" id="taskInput" placeholder="Add new task">
+    <button id="addButton" onclick="addTask()">Add Task</button>
+    <table id="taskList">
+        <tr>
+            <th>Serial No.</th>
+            <th>Task</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Action</th>
+        </tr>
+    </table>
+</div>
+
+<script>
+    var taskCounter = 0; // Initialize the task counter
+
+    function addTask() {
+        var taskInput = document.getElementById("taskInput");
+        var taskText = taskInput.value;
+
+        if (taskText.trim() !== "") {
+            var taskList = document.getElementById("taskList");
+
+            // Get today's date and time
+            var today = new Date();
+            var date = today.toISOString().split('T')[0]; // Get date in YYYY-MM-DD format
+            var time = today.toLocaleTimeString('en-US', { hour12: false }); // Get time in HH:MM:SS format
+
+            taskCounter++; // Increment task counter
+
+            var newRow = taskList.insertRow(-1); // Insert row at the end of the table
+            var serialCell = newRow.insertCell(0);
+            var taskCell = newRow.insertCell(1);
+            var dateCell = newRow.insertCell(2);
+            var timeCell = newRow.insertCell(3);
+            var actionCell = newRow.insertCell(4);
+
+            // Add task details to cells
+            serialCell.textContent = taskCounter;
+            taskCell.textContent = taskText;
+            dateCell.textContent = date;
+            timeCell.textContent = time;
+
+            var removeButton = document.createElement("button");
+            removeButton.textContent = "Remove";
+            removeButton.classList.add("remove-button");
+            removeButton.onclick = function () {
+                taskList.deleteRow(newRow.rowIndex);
+                document.getElementById("removeSound").play(); // Play remove sound
+            };
+
+            actionCell.appendChild(removeButton);
+
+            document.getElementById("addSound").play(); // Play add sound
+
+            // Highlight today's date
+            if (date === today.toISOString().split('T')[0]) {
+                newRow.classList.add("highlighted");
+            }
+
+            taskInput.value = "";
+        } else {
+            alert("Please enter a task!");
+        }
+    }
+</script>
+</body>
+</html>

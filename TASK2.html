@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Landing Page</title>
+    <style>
+        /* CSS styles for the container */
+        .container {
+            position: relative;
+            text-align: center;
+        }
+        a
+        {
+            text-decoration:none;
+        }
+        ul
+        {
+            font-size:30px;
+            padding-bottom: 10px;
+        }
+        li
+        {
+            font-size:30px;
+            margin-bottom: 10px;
+        }
+        /* CSS styles for the buttons */
+        button {
+            padding: 10px 20px; /* Added padding to the buttons for better appearance */
+            margin: 10px; /* Added margin to separate buttons */
+            background-color: #007bff; /* Changed button background color to a blue shade */
+            color: #fff; /* Changed button text color to white */
+            border: none; /* Removed button border */
+            border-radius: 5px; /* Added border-radius for rounded corners */
+            cursor: pointer;
+            transition: background-color 0.3s; /* Added transition effect for smoother hover */
+        }
+        /* CSS styles for button hover effect */
+        button:hover {
+            background-color: #0056b3; /* Darker shade of blue on hover */
+        }
+        /* CSS styles for the image container */
+        .image-container {
+            position: relative;
+            width: 100%;
+            height: auto;
+            text-align: center;
+        }
+        /* CSS styles for the image */
+        .landing-image {
+            width: 100%;
+            height: auto;
+        }
+        /* CSS styles for the overlay */
+        ul {
+    display: flex; /* Use flexbox layout */
+    justify-content: center; /* Center the items horizontally */
+    list-style-type: none; /* Remove default list styles */
+    padding: 0;
+    margin: 0; /* Remove default margin */
+}
+
+/* CSS styles for list items */
+li {
+    margin: 0 15px; /* Add margin to separate list items */
+}
+
+/* CSS styles for active list item */
+li a.active {
+    font-weight: bold; /* Make the text bold */
+    color: #007bff; /* Change text color */
+}
+
+/* CSS styles for buttons within list items */
+li button {
+    background-color:green; /* Changed button background color to a blue shade */
+    color: #fff; /* Changed button text color to white */
+    border: none; /* Removed button border */
+    border-radius: 5px; /* Added border-radius for rounded corners */
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.3s; /* Added transition effect for smoother hover */
+}
+
+/* CSS styles for button hover effect */
+li button:hover {
+    background-color: #0056b3; /* Darker shade of blue on hover */
+}
+        .overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #fff;
+        }
+        /* CSS styles for the unordered list */
+        ul {
+            display: flex; /* Use flexbox layout */
+            justify-content: center; /* Center the items horizontally */
+            list-style-type: none; /* Remove default list styles */
+            padding: 0;
+        }
+        /* CSS styles for the container */
+.container {
+    position: relative;
+    text-align: center;
+}
+
+/* CSS styles for the navigation bar */
+.container ul {
+    position: fixed; /* Set position to fixed */
+    top: 0; /* Stick to the top of the screen */
+    width: 100%; /* Full width */
+    background-color: #fff; /* Background color for contrast */
+    z-index: 1000; /* Ensure it's above other content */
+}
+
+/* CSS styles for the navigation items */
+.container ul li {
+    display: inline-block; /* Display items horizontally */
+    margin: 0 10px; /* Add margin */
+}
+
+/* CSS styles for the overlay */
+.overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+}
+
+/* CSS styles for sections */
+.section {
+    padding: 20px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+    height: calc(100vh - 170px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+/* CSS styles for the container */
+.container {
+    position: relative;
+    text-align: center;
+}
+
+/* CSS styles for the navigation bar */
+.container ul {
+    position: fixed; /* Set position to fixed */
+    top: 0; /* Stick to the top of the screen */
+    width: 100%; /* Full width */
+    background-color: gray; /* Background color for contrast */
+    z-index: 1000; /* Ensure it's above other content */
+}
+
+/* CSS styles for the navigation items */
+.container ul li {
+    display: inline-block; /* Display items horizontally */
+    margin: 0 10px; /* Add margin */
+}
+
+/* CSS styles for sections */
+.section {
+    padding: 20px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+    height: calc(100vh - 170px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Remove border from last section */
+.section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+/* CSS styles for centered text */
+.centered-text {
+    text-align: center;
+    color: grey;
+}
+
+/* CSS styles for the sticky section */
+.sticky-section {
+    background-color:grey; /* Black background color */
+    position: fixed; /* Set position to fixed */
+    top: 0; /* Stick to the top of the screen */
+    width: 100%; /* Full width */
+    z-index: 999; /* Ensure it's above other content */
+}
+
+
+/* Remove border from last section */
+.section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+/* CSS styles for centered text */
+.centered-text {
+    text-align: center;
+    color: grey;
+}
+
+
+        /* CSS styles for list items */
+        li {
+            margin: 0 10px; /* Add margin to separate list items */
+        }
+        /* CSS styles for active list item */
+        .active {
+            font-weight: bold; /* Make the text bold */
+            color: yellow; /* Change text color */
+        }
+        /* CSS styles for section content */
+        .section {
+            padding: 20px; /* Add padding to section content */
+            border-bottom: 1px solid #ccc; /* Add border to separate sections */
+            margin-bottom: 20px; /* Add margin between sections */
+            height: calc(100vh - 170px); /* Set the height of each section */
+            display: flex; /* Use flexbox layout */
+            flex-direction: column; /* Stack content vertically */
+            justify-content: center; /* Center content vertically */
+        }
+        /* Remove border from last section */
+        .section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+        /* CSS styles for centered text */
+        .centered-text {
+            text-align: center;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <ul>
+            <li class="active"><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#case-studies">Case Studies</a></li>
+            <li><a href="#products">Products</a></li>
+            <li class="get-in-touch"><a href="#"><button>Get In Touch</button></a></li>
+        </ul>
+        <div class="image-container">
+            <img class="landing-image" src="https://png.pngtree.com/thumb_back/fw800/background/20231001/pngtree-3d-rendered-product-promotion-podium-featuring-realistic-natural-plants-image_13518701.png" alt="Product Promotion Podium">
+            <div class="overlay">
+                <h1>Product Landing Page</h1>
+                <p>Web Development Task by Devtern.</p>
+                <button>GET STARTED</button>
+                <button>LEARN MORE</button>
+            </div>
+        </div>
+        <div id="home" class="section">
+            <div class="centered-text">
+                <h2>Home Section</h2>
+                <p>Welcome to our landing page!</p>
+                <img src="https://img.freepik.com/premium-photo/fantasy-illustration-beautiful-nature-environment_492154-5331.jpg">
+            </div>
+        </div>
+        <div id="about" class="section">
+            <div class="centered-text">
+                <h2>About Section</h2>
+                <p>Learn more about our company.</p>
+                <video width="1000" height="500" controls>
+                    <source src="C:\Users\nisha\Downloads\67358-521707474_tiny.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+            </div>
+        </div>
+        <div id="services" class="section">
+            <div class="centered-text">
+                <h2>Services Section</h2>
+                <p>Explore our range of services.</p>
+            </div>
+        </div>
+        <div id="case-studies" class="section">
+            <div class="centered-text">
+                <h2>Case Studies Section</h2>
+                <p>Check out our successful projects.</p>
+            </div>
+        </div>
+        <div id="products" class="section">
+            <div class="centered-text">
+                <h2>Products Section</h2>
+                <p>Discover our latest products.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
